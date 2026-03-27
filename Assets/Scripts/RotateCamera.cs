@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 // 1.1 START HERE
 public class RotateCamera : MonoBehaviour
 {
+
+
     public float rotationSpeed;
 
     private InputAction moveAction;
@@ -15,6 +17,8 @@ public class RotateCamera : MonoBehaviour
 
     void Update()
     {
-
+        var move = moveAction.ReadValue<Vector2>();
+        var h =-move.x;
+        transform.Rotate(Vector3.up, h * rotationSpeed * Time.deltaTime);
     }
 }
